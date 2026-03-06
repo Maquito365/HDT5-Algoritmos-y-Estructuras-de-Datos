@@ -52,7 +52,24 @@ class Simulacion:
                         yield self.env.timeout(1) #se simula el tiempo de espera en waiting
                     elif numero == 2: #si es 2 pasa a ready
                         pass
-        
+    def correr(self):
+        self.env.process(self.generar_procesos()) #se inicia la generación de procesos
+        self.env.run()
+    
+    def estadisticas(self):
+        promedio = statistics.mean(self.tiempos)
+        if len(self.tiempos) > 1:
+            desviacion = statistics.stdev(self.tiempos)
+        else:
+            desviacion = 0
+        return promedio, desviacion
 
+random.seed(42) #se fija la semilla para reproducibilidad
+sim = Simulacion(50,10) #se crea una simulacion con n procesos y un intervalo de llegada de n unidades de tiempo
+sim.correr() 
 
+promedio, desviacion = sim.estadisticas() #se calculan las estadísticas
+print("Promedio: ", promedio)
+print("Desviación estándar: ", desviacion)
+    
 
