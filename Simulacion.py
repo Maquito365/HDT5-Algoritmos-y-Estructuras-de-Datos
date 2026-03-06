@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+# =============================================================================
+# Simulación de Procesos en un Sistema Operativo de Tiempo Compartido
+# Usando SimPy (Discrete Event Simulation)
+# =============================================================================
+# Universidad del Valle de Guatemala
+# Programación - Semestre 3
+# Marco Antonio Soloj - 25701
+# =============================================================================
 import simpy
 import random
 import statistics
